@@ -1,21 +1,6 @@
 import random
 import math
 
-#
-# Shorthand:
-#   "pd_" as a variable prefix means "partial derivative"
-#   "d_" as a variable prefix means "derivative"
-#   "_wrt_" is shorthand for "with respect to"
-#   "w_ho" and "w_ih" are the index of weights from hidden to output layer neurons and input to hidden layer neurons respectively
-#
-# Comment references:
-#
-# [1] Wikipedia article on Backpropagation
-#   http://en.wikipedia.org/wiki/Backpropagation#Finding_the_derivative_of_the_error
-# [2] Neural Networks for Machine Learning course on Coursera by Geoffrey Hinton
-#   https://class.coursera.org/neuralnets-2012-001/lecture/39
-# [3] The Back Propagation Algorithm
-#   https://www4.rgu.ac.uk/files/chapter3%20-%20bp.pdf
 
 class NeuralNetwork:
     LEARNING_RATE = 0.2
@@ -206,13 +191,5 @@ class Neuron:
     def calculate_pd_total_net_input_wrt_weight(self, index):
         return self.inputs[index]
 
-###
-
-# Blog post example:
-
-nn = NeuralNetwork(2, 2, 2, hidden_layer_weights=[0.15, 0.2, 0.25, 0.3], hidden_layer_bias=0.35, output_layer_weights=[0.4, 0.45, 0.5, 0.55], output_layer_bias=0.6)
-for i in range(10000):
-    nn.train([0.05, 0.1], [0.01, 0.99])
-    print(i, round(nn.calculate_total_error([[[0.05, 0.1], [0.01, 0.99]]]), 9))
 
 
